@@ -6,4 +6,5 @@ src/.vscode
 src/**/*.obj
 
 project/.godot
+project/export_presets.cfg
 project/bin/tappr/*
