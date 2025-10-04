@@ -1,0 +1,378 @@
+[gd_scene load_steps=7 format=3 uid="uid://camj4upua240"]
+
+[ext_resource type="PackedScene" uid="uid://l15s4wl8pr8j" path="res://src/ui/GroupBox.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://d0fs57ql1bxjf" path="res://src/main.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://gvvelwdjsxw0" path="res://src/ui/IntBox.gd" id="4_1bvp3"]
+[ext_resource type="FontFile" uid="uid://cr7wkt27mvuku" path="res://assets/fonts/Inter-SemiBold.ttf" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://derlxr0eew6rb" path="res://src/ui/VersionLabel.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://y6bjlnky77gp" path="res://src/ui/HotkeyBox.gd" id="6_7mycd"]
+
+[node name="Main" type="Panel"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 2
+script = ExtResource("3_h2yge")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Interval" parent="MarginContainer/VBoxContainer/Options/TopBar" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+title = "Interval"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval"]
+layout_mode = 2
+
+[node name="Hours" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Hours"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 11
+text = "hours"
+
+[node name="InputHours" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Hours"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Millis/InputMilliseconds")
+focus_neighbor_top = NodePath("../../../../../../Controls/ButtonToggle")
+focus_neighbor_right = NodePath("../../Minutes/InputMinutes")
+focus_neighbor_bottom = NodePath("../../../../../BottomBar/Click/VList/ClickCount/InputClickCount")
+focus_next = NodePath("../../Minutes/InputMinutes")
+focus_previous = NodePath("../../../../../../Controls/Hotkey/InputHotkey")
+max_value = 99999.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="Minutes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Minutes"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 11
+text = "minutes"
+
+[node name="InputMinutes" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Minutes"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Hours/InputHours")
+focus_neighbor_top = NodePath("../../../../../../Controls/ButtonToggle")
+focus_neighbor_right = NodePath("../../Seconds/InputSeconds")
+focus_neighbor_bottom = NodePath("../../../../../BottomBar/Click/VList/ClickCount/InputClickCount")
+focus_next = NodePath("../../Seconds/InputSeconds")
+focus_previous = NodePath("../../Hours/InputHours")
+max_value = 99999.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="Seconds" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Seconds"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 11
+text = "seconds"
+
+[node name="InputSeconds" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Seconds"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Minutes/InputMinutes")
+focus_neighbor_top = NodePath("../../../../../../Controls/ButtonToggle")
+focus_neighbor_right = NodePath("../../Millis/InputMilliseconds")
+focus_neighbor_bottom = NodePath("../../../../../BottomBar/Click/VList/ClickCount/InputClickCount")
+focus_next = NodePath("../../Millis/InputMilliseconds")
+focus_previous = NodePath("../../Minutes/InputMinutes")
+max_value = 99999.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="Millis" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Millis"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 11
+text = "milliseconds"
+
+[node name="InputMilliseconds" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/TopBar/Interval/HBoxContainer/Millis"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../Seconds/InputSeconds")
+focus_neighbor_top = NodePath("../../../../../../Controls/ButtonToggle")
+focus_neighbor_right = NodePath("../../Hours/InputHours")
+focus_neighbor_bottom = NodePath("../../../../../BottomBar/Repeat/VList/RepeatCount/InputRepeatCount")
+focus_next = NodePath("../../../../../BottomBar/Click/VList/ClickCount/InputClickCount")
+focus_previous = NodePath("../../Seconds/InputSeconds")
+max_value = 99999.0
+value = 100.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="Version" type="Label" parent="MarginContainer/VBoxContainer/Options/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.5033745, 0.5033746, 0.50337446, 1)
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 15
+text = "v0.0"
+horizontal_alignment = 2
+clip_text = true
+script = ExtResource("5_7mycd")
+
+[node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Click" parent="MarginContainer/VBoxContainer/Options/BottomBar" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+size_flags_horizontal = 3
+title = "Click"
+
+[node name="VList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click"]
+layout_mode = 2
+
+[node name="ClickCount" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/ClickCount"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Click count:"
+
+[node name="Tip" type="Label" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/ClickCount/Label"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+offset_right = 133.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 11
+text = "use with caution!"
+vertical_alignment = 2
+
+[node name="InputClickCount" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/ClickCount"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../../../Repeat/VList/RepeatCount/InputRepeatCount")
+focus_neighbor_top = NodePath("../../../../../TopBar/Interval/HBoxContainer/Hours/InputHours")
+focus_neighbor_right = NodePath("../../../../Repeat/VList/RepeatCount/InputRepeatCount")
+focus_neighbor_bottom = NodePath("../../MouseButton/InputMouseButton")
+focus_next = NodePath("../../MouseButton/InputMouseButton")
+focus_previous = NodePath("../../../../../TopBar/Interval/HBoxContainer/Millis/InputMilliseconds")
+min_value = 1.0
+max_value = 99.0
+value = 1.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="MouseButton" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/MouseButton"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse button:"
+
+[node name="InputMouseButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/MouseButton"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../../../Repeat/VList/RepeatCount/InputRepeatCount")
+focus_neighbor_top = NodePath("../../ClickCount/InputClickCount")
+focus_neighbor_right = NodePath("../../../../Repeat/VList/RepeatCount/InputRepeatCount")
+focus_neighbor_bottom = NodePath("../../../../../../Controls/ButtonToggle")
+focus_next = NodePath("../../../../Repeat/VList/RepeatCount/InputRepeatCount")
+focus_previous = NodePath("../../ClickCount/InputClickCount")
+focus_mode = 0
+theme_override_constants/h_separation = 6
+selected = 0
+item_count = 3
+popup/item_0/text = " Left "
+popup/item_0/id = 0
+popup/item_1/text = " Right "
+popup/item_1/id = 1
+popup/item_2/text = " Middle "
+popup/item_2/id = 2
+
+[node name="Repeat" parent="MarginContainer/VBoxContainer/Options/BottomBar" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+size_flags_horizontal = 3
+title = "Repeat"
+
+[node name="VList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Options/BottomBar/Repeat"]
+layout_mode = 2
+
+[node name="RepeatCount" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options/BottomBar/Repeat/VList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Options/BottomBar/Repeat/VList/RepeatCount"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Repeat count:"
+
+[node name="Tip" type="Label" parent="MarginContainer/VBoxContainer/Options/BottomBar/Repeat/VList/RepeatCount/Label"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 1
+offset_right = 133.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 11
+text = "0 = unlimited"
+vertical_alignment = 2
+
+[node name="InputRepeatCount" type="SpinBox" parent="MarginContainer/VBoxContainer/Options/BottomBar/Repeat/VList/RepeatCount"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+focus_neighbor_left = NodePath("../../../../Click/VList/ClickCount/InputClickCount")
+focus_neighbor_top = NodePath("../../../../../TopBar/Interval/HBoxContainer/Millis/InputMilliseconds")
+focus_neighbor_right = NodePath("../../../../Click/VList/ClickCount/InputClickCount")
+focus_neighbor_bottom = NodePath("../../../../../../Controls/Hotkey/InputHotkey")
+focus_next = NodePath("../../../../../../Controls/ButtonToggle")
+focus_previous = NodePath("../../../../Click/VList/MouseButton/InputMouseButton")
+max_value = 99999.0
+rounded = true
+alignment = 2
+custom_arrow_step = 1.0
+script = ExtResource("4_1bvp3")
+
+[node name="Controls" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonToggle" type="Button" parent="MarginContainer/VBoxContainer/Controls"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Hotkey/InputHotkey")
+focus_neighbor_top = NodePath("../../Options/BottomBar/Click/VList/MouseButton/InputMouseButton")
+focus_neighbor_right = NodePath("../Hotkey/InputHotkey")
+focus_neighbor_bottom = NodePath("../../Options/TopBar/Interval/HBoxContainer/Hours/InputHours")
+focus_next = NodePath("../Hotkey/InputHotkey")
+focus_previous = NodePath("../../Options/BottomBar/Repeat/VList/RepeatCount/InputRepeatCount")
+focus_mode = 0
+text = "Start"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Controls"]
+layout_mode = 2
+
+[node name="Hotkey" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Controls"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Controls/Hotkey"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "Hotkey:"
+
+[node name="Tip" type="Label" parent="MarginContainer/VBoxContainer/Controls/Hotkey/Label"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 14.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 11
+text = "ENTER to submit / ESC to cancel"
+horizontal_alignment = 2
+
+[node name="InputHotkey" type="LineEdit" parent="MarginContainer/VBoxContainer/Controls/Hotkey"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ButtonToggle")
+focus_neighbor_top = NodePath("../../../Options/BottomBar/Repeat/VList/RepeatCount/InputRepeatCount")
+focus_neighbor_right = NodePath("../../ButtonToggle")
+focus_neighbor_bottom = NodePath("../../../Options/TopBar/Interval/HBoxContainer/Millis/InputMilliseconds")
+focus_next = NodePath("../../../Options/TopBar/Interval/HBoxContainer/Hours/InputHours")
+focus_previous = NodePath("../../ButtonToggle")
+theme_override_colors/caret_color = Color(0.95, 0.95, 0.95, 0)
+text = "None"
+alignment = 1
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+script = ExtResource("6_7mycd")
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/ClickCount/InputClickCount" to="." method="_set_click_count"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Options/BottomBar/Click/VList/MouseButton/InputMouseButton" to="." method="_set_mouse_button"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Options/BottomBar/Repeat/VList/RepeatCount/InputRepeatCount" to="." method="_set_repeat_count"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls/ButtonToggle" to="." method="_on_toggle"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Controls/Hotkey/InputHotkey" to="." method="_hotkey_focused"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/Controls/Hotkey/InputHotkey" to="." method="_hotkey_unfocused"]

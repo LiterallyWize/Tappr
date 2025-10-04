@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[accessibility]
+
+general/accessibility_support=2
+
+[application]
+
+config/name="Tappr"
+config/version="0.0"
+run/main_scene="uid://camj4upua240"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+run/low_processor_mode=true
+boot_splash/bg_color=Color(0.1254902, 0.1254902, 0.1254902, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="uid://dwhnrpppmvleu"
+
+[display]
+
+window/size/viewport_width=440
+window/size/viewport_height=250
+window/size/resizable=false
+window/size/always_on_top=true
+window/size/maximize_disabled=true
+window/energy_saving/keep_screen_on=false
+
+[gui]
+
+theme/default_font_antialiasing=2
+theme/custom="uid://cu8owfopwbjaf"
+theme/custom_font="uid://btrjqusa4j4eb"
+
+[physics]
+
+2d/physics_engine="Dummy"
+3d/physics_engine="Dummy"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+driver/depth_prepass/enable=false
+viewport/bg_color=Color(0.1254902, 0.1254902, 0.1254902, 1)

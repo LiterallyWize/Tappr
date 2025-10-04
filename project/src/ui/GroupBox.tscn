@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://l15s4wl8pr8j"]
+
+[ext_resource type="Script" uid="uid://cpfy6xt83npay" path="res://src/ui/GroupBox.gd" id="1_p2fcs"]
+[ext_resource type="FontFile" uid="uid://cr7wkt27mvuku" path="res://assets/fonts/Inter-SemiBold.ttf" id="1_teqo8"]
+
+[node name="GroupBox" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Border"
+theme_override_constants/margin_top = 13
+script = ExtResource("1_p2fcs")
+
+[node name="BorderMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"InverseMargin"
+theme_override_constants/margin_top = -13
+
+[node name="Panel" type="Panel" parent="BorderMargin"]
+layout_mode = 2
+theme_type_variation = &"Border"
+
+[node name="TitleMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"InverseMargin"
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -20
+
+[node name="Title" type="Label" parent="TitleMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_teqo8")
+text = "Group"
+
+[node name="Background" type="Panel" parent="TitleMargin/Title"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2

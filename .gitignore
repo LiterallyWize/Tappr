@@ -1,0 +1,9 @@
+.sconsign.dblite
+.vscode
+bin
+
+src/.vscode
+src/**/*.obj
+
+project/.godot
+project/bin/tappr/*
