@@ -15,7 +15,7 @@ general/accessibility_support=2
 [application]
 
 config/name="Tappr"
-config/version="0.0"
+config/version="0.0b1"
 run/main_scene="uid://camj4upua240"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/low_processor_mode=true

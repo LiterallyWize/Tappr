@@ -171,10 +171,10 @@ script = ExtResource("4_1bvp3")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0.5033745, 0.5033746, 0.50337446, 1)
+theme_type_variation = &"SubLabel"
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 15
-text = "v0.0"
+text = "v0.0b1"
 horizontal_alignment = 2
 clip_text = true
 script = ExtResource("5_7mycd")
@@ -206,8 +206,7 @@ layout_mode = 1
 offset_right = 133.0
 offset_bottom = 30.0
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
-theme_override_font_sizes/font_size = 11
+theme_type_variation = &"SubLabel"
 text = "use with caution!"
 vertical_alignment = 2
 
@@ -282,8 +281,7 @@ layout_mode = 1
 offset_right = 133.0
 offset_bottom = 30.0
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
-theme_override_font_sizes/font_size = 11
+theme_type_variation = &"SubLabel"
 text = "0 = unlimited"
 vertical_alignment = 2
 
@@ -345,8 +343,7 @@ offset_left = -170.0
 offset_bottom = 14.0
 grow_horizontal = 0
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
-theme_override_font_sizes/font_size = 11
+theme_type_variation = &"SubLabel"
 text = "ENTER to submit / ESC to cancel"
 horizontal_alignment = 2
 

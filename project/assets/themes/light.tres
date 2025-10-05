@@ -4,7 +4,6 @@
 [ext_resource type="FontFile" uid="uid://btrjqusa4j4eb" path="res://assets/fonts/Inter-Regular.ttf" id="2_qe7jt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
-bg_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 draw_center = false
 border_width_left = 1
 border_width_top = 1
@@ -258,6 +257,9 @@ SpinBox/styles/down_background_hovered = SubResource("StyleBoxFlat_qf5hw")
 SpinBox/styles/down_background_pressed = SubResource("StyleBoxFlat_qf5hw")
 SpinBox/styles/up_background_hovered = SubResource("StyleBoxFlat_qf5hw")
 SpinBox/styles/up_background_pressed = SubResource("StyleBoxFlat_qf5hw")
+SubLabel/base_type = &"Label"
+SubLabel/colors/font_color = Color(0.37602848, 0.37602848, 0.37602845, 1)
+SubLabel/font_sizes/font_size = 11
 TextEdit/fonts/font = ExtResource("1_qf5hw")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_mihib")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_1rmny")
